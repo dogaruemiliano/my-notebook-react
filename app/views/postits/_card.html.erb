@@ -1,0 +1,11 @@
+<div class="postit" style="background-color: <%= postit.color %> !important ">
+  <%= postit.description %>
+  <div class="links w-100 d-flex justify-content-between pr-5">
+    <%= link_to edit_postit_path(postit) do %>
+      <i class="fas fa-edit"></i>
+    <% end %>
+    <%= link_to postit_path(postit), method: :delete, data: { confirm: "Are you sure you want to delete this PostIt?\nDescription: #{postit.description}" } do %>
+      <i class="fas fa-trash"></i>
+    <% end %>
+  </div>
+</div>

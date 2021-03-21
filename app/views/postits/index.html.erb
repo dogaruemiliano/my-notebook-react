@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>Your postits</h1>
+  <div class="cards">
+    <% @postits.each do |postit| %>
+      <%= react_component("Postit", {
+        id: postit.id,
+        description: postit.description,
+        color: postit.color
+      }) %>
+    <% end %>
+  <!-- Button trigger modal -->
+    <a data-toggle="modal" data-target="#exampleModalCenter" class="new-postit">
+      <img src="https://res.cloudinary.com/therainycloud/image/upload/v1610996066/Untitled_design_54_r8pmco.png" alt="">
+    </a>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content" style="background-color: #FFE366">
+        <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <%= render 'postits/new' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
